@@ -1,6 +1,7 @@
 package pro.sky.calculator.service;
 
 import org.springframework.stereotype.Service;
+import pro.sky.calculator.Exceptions.DivizorIsNullException;
 
 @Service
 public class CalculatorServiceImpl implements CalculatorService{
@@ -31,7 +32,7 @@ public class CalculatorServiceImpl implements CalculatorService{
     @Override
     public String getDivide(int num1, int num2) {
         if(num2 == 0) {
-            throw new RuntimeException("Деление на ноль");
+            throw new DivizorIsNullException("Деление на ноль!");
         }
         String s = String.valueOf(num1) + " / " + String.valueOf(num2) + " = " + String.valueOf(num1/num2);
         return s;
